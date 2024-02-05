@@ -1,0 +1,53 @@
+let saved = 0;
+let input = document.getElementById('number_buttons');
+let number;
+
+function updateNumber() {
+   number = parseInt(input.value, 10);
+ }
+ input.addEventListener('input', updateNumber);
+
+let number2 = number;
+function  FoundButton() { 
+   for(let i = 0; i < number; ++i) { 
+      ++saved;
+      document.getElementById('numberButton').innerHTML +=`
+   <div id = '${saved}'>
+      <br>
+      <div class="card"
+             style="text-align:center">
+             <div class ="card-header"></div>
+             <div class="card-body">
+             <buton class = "btn btn-success" id ="contor" onclick ='Win_Lose(${saved})'></buton>
+            
+         </div>    
+  </div>
+     </div>`
+     ; 
+   }
+    number = 0;
+}
+function  Win_Lose(elementId) { 
+      if (elementId == 1) { 
+   document.getElementById(elementId).innerHTML =`<div class="card"
+   style="text-align:center">
+   <div class ="card-header"></div>
+   <div class="card-body">
+   <buton class = "btn btn-success" id ="contor" >winner</buton>
+  
+</div>    
+</div>`
+; 
+}
+else {
+   document.getElementById(elementId).innerHTML =`<div class="card"
+   style="text-align:center">
+   <div class ="card-header"></div>
+   <div class="card-body">
+   <buton class = "btn btn-success" id ="contor" >Loser</buton>
+  
+</div>    
+</div>`
+; 
+}
+}
